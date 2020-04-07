@@ -36,6 +36,8 @@ const ContactItem = ({ contact }) => {
   );
 };
 
-ContactItem.propTypes = {};
+ContactItem.propTypes = {
+  contact: PropTypes.object.isRequired,
+};
 
 export default ContactItem;
