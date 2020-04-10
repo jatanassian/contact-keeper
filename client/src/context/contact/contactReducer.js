@@ -39,6 +39,19 @@ export default (state, action) => {
         ...state,
         current: null,
       };
+    case FILTER_CONTACTS:
+      return {
+        ...state,
+        filtered: state.contacts.filter((contact) => {
+          const regex = new RegExp(`${action.payload}`, 'gi'); // We're making the text case insensitive so we can get a match with any case
+          return contact.name.match(regex) || contact.email.match(regex); // Return anything where the text matchs the regex
+        }),
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
+      };
     default:
       return state;
   }
