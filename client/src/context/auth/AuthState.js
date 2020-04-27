@@ -54,6 +54,7 @@ const AuthState = (props) => {
   // Logout (destroy the tokan and clear everything)
 
   // Clear Errors (clear errors in the state)
+  const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
 
   return (
     <AuthContext.Provider
@@ -62,8 +63,9 @@ const AuthState = (props) => {
         isAuthenticated: state.isAuthenticated,
         loading: state.loading,
         user: state.user,
-        error: state.token,
+        error: state.error,
         register,
+        clearErrors,
       }}
     >
       {props.children}
