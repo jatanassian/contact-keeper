@@ -8,9 +8,17 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
 } from '../types';
+import { addListener } from 'nodemon';
 
 export default (state, action) => {
   switch (action.type) {
+    case USER_LOADED:
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        user: action.payload,
+      };
     case REGISTER_SUCCESS:
       localStorage.setItem('token', action.payload.token); // Put token we get back inside of localstorage
       return {
@@ -20,6 +28,7 @@ export default (state, action) => {
         loading: false,
       };
     case REGISTER_FAIL:
+    case AUTH_ERROR:
       localStorage.removeItem('token'); // Remove token from storage
       return {
         ...state,
