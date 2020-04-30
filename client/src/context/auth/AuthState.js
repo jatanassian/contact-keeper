@@ -56,6 +56,9 @@ const AuthState = (props) => {
         type: REGISTER_SUCCESS,
         payload: res.data, // Token
       });
+
+      // Logs the user in
+      loadUser();
     } catch (err) {
       dispatch({
         type: REGISTER_FAIL,
