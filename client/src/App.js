@@ -6,10 +6,17 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+
 import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
+import setAuthToken from './utils/setAuthToken';
 import './App.css';
+
+// Check if token and add it to the headers
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
