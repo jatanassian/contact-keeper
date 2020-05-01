@@ -8,7 +8,6 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
 } from '../types';
-import { addListener } from 'nodemon';
 
 export default (state, action) => {
   switch (action.type) {
