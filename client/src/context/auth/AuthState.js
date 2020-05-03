@@ -93,6 +93,7 @@ const AuthState = (props) => {
   };
 
   // Logout (destroy the tokan and clear everything)
+  const logout = () => dispatch({ type: LOGOUT });
 
   // Clear Errors (clear errors in the state)
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
@@ -109,6 +110,7 @@ const AuthState = (props) => {
         login,
         clearErrors,
         loadUser,
+        logout,
       }}
     >
       {props.children}
