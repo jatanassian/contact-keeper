@@ -14,7 +14,7 @@ const Contacts = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (contacts.length === 0) {
+  if (contacts && contacts.length === 0) {
     return <h4>Please add a contact</h4>;
   }
 
@@ -32,7 +32,7 @@ const Contacts = () => {
                   <ContactItem contact={contact} />
                 </CSSTransition>
               ))
-            : contacts[0].map((contact) => (
+            : contacts.map((contact) => (
                 <CSSTransition
                   key={contact._id}
                   timeout={500}
